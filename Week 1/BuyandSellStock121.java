@@ -12,6 +12,8 @@ public class BuyandSellStock121{
             new min. After each element that isn't a new minimum, compare the difference
             between (min and prices[i]) and maxPro and store the larger into maxPRo. 
         
+
+            Hey y'all did you get this change, im new to the gitty 
         */
 
         int min = Integer.MAX_VALUE; 
