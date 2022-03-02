@@ -15,7 +15,9 @@ public class BuyandSellStock121{
 
             Hey y'all did you get this change, im new to the gitty 
 
-            
+            Hey i'm testing branches so lets see if i added a new branch 
+
+
         */
 
         int min = Integer.MAX_VALUE; 
