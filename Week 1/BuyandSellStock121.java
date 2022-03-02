@@ -15,6 +15,8 @@ public class BuyandSellStock121{
 
             Hey y'all did you get this change, im new to the gitty 
 
+            Alright this is my third iteration of buyAndsellStock
+
             
         */
 
