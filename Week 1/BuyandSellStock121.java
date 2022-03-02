@@ -14,6 +14,8 @@ public class BuyandSellStock121{
         
 
             Hey y'all did you get this change, im new to the gitty 
+
+            
         */
 
         int min = Integer.MAX_VALUE; 
