@@ -33,9 +33,9 @@ public class ProductofArrayExceptSelf238 {
         // that value by the coressponding toTheLeft element
 
         int right = 1; 
-        for(int i = nums.length-1; i >= 0; i--){
-            ans[i] = right * ans[i]; 
-            right = nums[i]*right; 
+        for(int i = nums.length-2; i >= 0; i--){
+            right *= nums[i+1]; 
+            ans[i] = ans[i] * right; 
 
         }
             
