@@ -1,7 +1,16 @@
 public class ReverseLinkedList206 {
     public static ListNode reverseList(ListNode head){
 
-        return head; 
+        ListNode prev = null; 
+
+        while(head != null){
+            ListNode nextNode = head.next; 
+            head.next = prev; 
+            prev = head; 
+            head = nextNode; 
+        }
+
+        return prev; 
 
 
 
@@ -16,8 +25,8 @@ public class ReverseLinkedList206 {
         }
        ListNode ans = reverseList(head); 
         while(ans != null){
-            System.out.println(head.val);
-            head = head.next;      
+            System.out.println(ans.val);
+            ans = ans.next;      
         }
     
     }
