@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /*
 Method 1:
@@ -20,7 +21,7 @@ public class GroupAnagrams49 {
 
     public static List<List<String>> groupAnagrams(String[] strs){
         List<List<String>> output_arr = new ArrayList<>(); 
-        HashMap<String, ArrayList<String>> map = new HashMap<>(); 
+        Map<String, ArrayList<String>> map = new HashMap<>(); 
 
         for(String current: strs){
             char[] tochar = current.toCharArray(); 
