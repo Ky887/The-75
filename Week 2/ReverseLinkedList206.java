@@ -4,7 +4,7 @@ public class ReverseLinkedList206 {
         /* 
         Method 1:
         Main focus is to stay only one level deep and have (head!= null)
-        be you're only safe guard to nullPointerExcpetion. 
+        be your only safe guard to nullPointerExcpetion. 
         Establish a pointer prev to null. At the top of the loop update next pointer. 
         Then you can update the other pointers accordingly. 
         
