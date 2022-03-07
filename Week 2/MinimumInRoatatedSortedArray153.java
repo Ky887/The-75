@@ -4,7 +4,7 @@ public class MinimumInRoatatedSortedArray153 {
     Method 1:
     Which side of the pivot am I on? (Find the position right after the pivot)
     Same as binary search except the behaviour is different 
-    depending if the pivot is between left and mid. 
+    depending on the location of the pivot. 
     First check if sorted(if nums[left] < nums[right]); If sorted return min(nums[left], min)
     The pivot is between left and mid if nums[left] > nums[mid]. 
     Then everything in the right half will be bigger than nums[mid] so we can discard it. 
