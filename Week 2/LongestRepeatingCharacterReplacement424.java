@@ -35,14 +35,27 @@ public class LongestRepeatingCharacterReplacement424{
         return maxLength; 
     }
 
-    public static int hfcCalculator(int[] input){
+    public static int characterReplacement2(String s, int k){
+        int[] histo = new int[26]; 
 
-        int max = Integer.MIN_VALUE; 
+        int left =0, right = 0; 
+        int maxCount = 0; 
+        int maxLength = 0;
 
-        for(int num: input){
-            max = Math.max(max, num); 
+        while(right < s.length()){
+            if((right -left) - maxCount +1 <= k){
+                histo[s.charAt(right) - 'A']++; 
+                int currentCharCount = histo[s.charAt(right)-'A']; 
+                maxCount = Math.max(maxCount, currentCharCount); 
+                maxLength = Math.max(maxLength, ((right - left) +1));
+                right++;  
+            }else{
+                histo[s.charAt(left-'A')]--; 
+                left++; 
+            }
         }
-        return max; 
+
+        return maxLength; 
     }
     public static void main(String[] args) {
         String input = "ABAB"; 
