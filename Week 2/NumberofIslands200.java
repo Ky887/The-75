@@ -21,10 +21,10 @@ public class NumberofIslands200{
 
 
     public static void explore(char[][] grid, int r, int c){
-        boolean rowInBounds = 0 <= r && r < grid.length; 
-        boolean colInBounds = 0<= c && c <grid[0].length; 
+        boolean indexInBounds = (0 <= r && r < grid.length) && ( 0 <= c && c < grid[r].length); 
+      
 
-        if(!rowInBounds || !colInBounds || grid[r][c] == '0' )
+        if(!indexInBounds || grid[r][c] == '0' )
             return;  
         
         grid[r][c] = '0'; 
