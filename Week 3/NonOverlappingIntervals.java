@@ -1,49 +1,38 @@
 import java.util.Arrays;
 
-import javax.swing.plaf.synth.SynthSplitPaneUI;
 
 public class NonOverlappingIntervals {
     /* 
-    Method 1:
-    burte force is for every thing remove or keep 2^n time complexity 
-    instead use greedy approach. 
+    Method 1: 
     
-    Iterate them sorted. Sort the lowerbound of intervals
-    Know if they are overlapping if they have same starting point or the first one starts before the second
-    one ends. (If second one starts before the first one ends.)
+   
+    Sort the lowerbound of intervals
+    Two intervals overlap if current upperbound is larger than next lowerbound. 
+    If nextInterval is larger "delete it" by changing its upper bound so the overlap is gone, the same as current. 
+    If current interval is larger, safe to ignore and move on to next interval but make sure to still update counter as that would be actually deleted. 
+    Update current interval after every iteration. 
 
-    Incase of overlap would want to keep the one that ends first to lower the chances of further 
-    overlaps
     
     
     */
 
     public static int eraseOverlapIntervals(int[][] intervals){
         Arrays.sort(intervals, (arr1, arr2) -> Integer.compare(arr1[0], arr2[0])); 
-        int[] currentInterval = intervals[0]; 
+        int currentInterval = 0; 
         int count = 0; 
         for(int i = 0; i<intervals.length-1; i++){
-            int[] nextInterval = intervals[i+1]; 
-            int j = 1; 
-            // if current interval is deleted roll back untill you reach a real interval to compare with nextInterval
-            while(currentInterval == null){
-                currentInterval = intervals[i-j]; 
-                j++;   
-            }
+            int nextInterval = i+1; 
             // if there's an overlap 
-            if(currentInterval[1] > nextInterval[0]){
-               if (currentInterval[1] < nextInterval[1])
-               // delete current interval
+            if(intervals[currentInterval][1] > intervals[nextInterval][0]){
+               if (intervals[currentInterval][1] < intervals[nextInterval][1]){
+               // delete next interval
               // nextInterval = null; 
-               intervals[i+1] = null; 
-               else
-                    // currentInterval = null; 
-                     intervals[i] = null; 
+               intervals[nextInterval][1] = intervals[currentInterval][1]; 
+               }   
                count++; 
+            } 
+              currentInterval = nextInterval; 
             }
-            currentInterval = intervals[i+1]; 
-        }
-
         return count; 
     }
     public static void main(String[] args) { 
